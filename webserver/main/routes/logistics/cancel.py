@@ -17,43 +17,53 @@ cancel_namespace = Namespace('cancel', description='Cancel Namespace')
 
 @cancel_namespace.route("/v1/cancel")
 class CancelOrder(Resource):
-    path_schema = get_json_schema_for_given_path('/cancel')
-
-    # @expects_json(path_schema)
     def post(self):
-        response_schema = get_json_schema_for_response('/cancel')
-        resp = get_ack_response(ack=True)
         payload = request.get_json()
-        log(json.dumps({f'{request.method} {request.path} req_body': json.dumps(payload)}))
-        dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
-        message = {
-            "request_type": "logistics_cancel",
-            "message_ids": {
-                "cancel": payload[constant.CONTEXT]["message_id"]
+        print(f'------------------- {payload[constant.CONTEXT]["core_version"]}')
+        path_schema = get_json_schema_for_given_path('/cancel', payload[constant.CONTEXT]["core_version"])
+
+        @expects_json(path_schema)
+        def innerFunction():
+            response_schema = get_json_schema_for_response('/cancel', payload[constant.CONTEXT]["core_version"])
+            resp = get_ack_response(ack=True)
+            # payload = request.get_json()
+            log(json.dumps({f'{request.method} {request.path} req_body': json.dumps(payload)}))
+            dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
+            message = {
+                "request_type": "logistics_cancel",
+                "message_ids": {
+                    "cancel": payload[constant.CONTEXT]["message_id"]
+                }
             }
-        }
-        send_message_to_queue_for_given_request(message)
-        validate(resp, response_schema)
-        return resp
+            send_message_to_queue_for_given_request(message)
+            validate(resp, response_schema)
+            return resp
+    
+        return innerFunction()
 
 
 @cancel_namespace.route("/v1/on_cancel")
 class OnCancelOrder(Resource):
-    path_schema = get_json_schema_for_given_path('/on_cancel')
-
-    # @expects_json(path_schema)
     def post(self):
-        response_schema = get_json_schema_for_response('/on_cancel')
-        resp = get_ack_response(ack=True)
         payload = request.get_json()
-        dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
-        message = {
-            "request_type": f"{OndcDomain.LOGISTICS.value}_on_cancel",
-            "message_ids": {
-                "on_cancel": payload[constant.CONTEXT]["message_id"]
+        print(f'------------------- {payload[constant.CONTEXT]["core_version"]}')
+        path_schema = get_json_schema_for_given_path('/on_cancel', payload[constant.CONTEXT]["core_version"])
+
+        @expects_json(path_schema)
+        def innerFunction():
+            response_schema = get_json_schema_for_response('/on_cancel', payload[constant.CONTEXT]["core_version"])
+            resp = get_ack_response(ack=True)
+            # payload = request.get_json()
+            dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
+            message = {
+                "request_type": f"{OndcDomain.LOGISTICS.value}_on_cancel",
+                "message_ids": {
+                    "on_cancel": payload[constant.CONTEXT]["message_id"]
+                }
             }
-        }
-        send_message_to_queue_for_given_request(message)
-        validate(resp, response_schema)
-        return resp
+            send_message_to_queue_for_given_request(message)
+            validate(resp, response_schema)
+            return resp
+    
+        return innerFunction()
 
