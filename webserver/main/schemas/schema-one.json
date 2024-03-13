@@ -3820,6 +3820,9 @@
         }
       },
       "Payment": {
+        "required":[
+          "type"
+        ],
         "description": "Describes a payment",
         "type": "object",
         "properties": {

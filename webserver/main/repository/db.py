@@ -32,5 +32,7 @@ def get_ondc_requests(domain, action, message_id):
 
 def get_first_ondc_request(domain, action, message_id):
     ondc_request = db_session.query(OndcRequest).filter_by(action=action, domain=domain, message_id=message_id).first()
-    return ondc_request.request
+    if ondc_request:
+        return ondc_request.request
+    else: None    
 

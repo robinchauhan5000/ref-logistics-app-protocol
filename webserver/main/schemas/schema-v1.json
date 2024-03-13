@@ -25,10 +25,7 @@
   "paths": {
     "/search": {
       "post": {
-        "tags": [
-          "ONDC Seller App",
-          "ONDC Gateway"
-        ],
+        "tags": ["ONDC Seller App", "ONDC Gateway"],
         "description": "Search for services by intent",
         "requestBody": {
           "description": "Buyer searches for products and services",
@@ -56,9 +53,7 @@
     },
     "/select": {
       "post": {
-        "tags": [
-          "ONDC Seller App"
-        ],
+        "tags": ["ONDC Seller App"],
         "description": "Select items from the catalog and build your order",
         "requestBody": {
           "description": "Buyer selects one or more catalog items",
@@ -86,9 +81,7 @@
     },
     "/init": {
       "post": {
-        "tags": [
-          "ONDC Seller App"
-        ],
+        "tags": ["ONDC Seller App"],
         "description": "Initialize an order by providing billing and/or shipping details",
         "requestBody": {
           "description": "Buyer initializes order checkout",
@@ -116,9 +109,7 @@
     },
     "/confirm": {
       "post": {
-        "tags": [
-          "ONDC Seller App"
-        ],
+        "tags": ["ONDC Seller App"],
         "description": "Initialize an order by providing billing and/or shipping details",
         "requestBody": {
           "description": "Buyer confirms an order",
@@ -146,9 +137,7 @@
     },
     "/status": {
       "post": {
-        "tags": [
-          "ONDC Seller App"
-        ],
+        "tags": ["ONDC Seller App"],
         "description": "Fetch the latest order object",
         "requestBody": {
           "description": "Buyer checks for status of order",
@@ -176,9 +165,7 @@
     },
     "/track": {
       "post": {
-        "tags": [
-          "ONDC Seller App"
-        ],
+        "tags": ["ONDC Seller App"],
         "description": "Track an active order",
         "requestBody": {
           "description": "Buyer tracks fulfillment of an order",
@@ -206,9 +193,7 @@
     },
     "/cancel": {
       "post": {
-        "tags": [
-          "ONDC Seller App"
-        ],
+        "tags": ["ONDC Seller App"],
         "description": "Cancel an order",
         "requestBody": {
           "description": "Buyer cancels an order",
@@ -236,9 +221,7 @@
     },
     "/update": {
       "post": {
-        "tags": [
-          "ONDC Seller App"
-        ],
+        "tags": ["ONDC Seller App"],
         "description": "Update an order",
         "requestBody": {
           "description": "Buyer updates an order",
@@ -266,9 +249,7 @@
     },
     "/rating": {
       "post": {
-        "tags": [
-          "ONDC Seller App"
-        ],
+        "tags": ["ONDC Seller App"],
         "description": "Provide feedback on a service",
         "requestBody": {
           "description": "Buyer rates for one or more rating categories",
@@ -296,9 +277,7 @@
     },
     "/support": {
       "post": {
-        "tags": [
-          "ONDC Seller App"
-        ],
+        "tags": ["ONDC Seller App"],
         "description": "Contact support",
         "requestBody": {
           "description": "Buyer searches for Support Contact details",
@@ -324,11 +303,9 @@
         }
       }
     },
-        "/issue": {
+    "/issue": {
       "post": {
-        "tags": [
-          "Complaint lifecycle management"
-        ],
+        "tags": ["Complaint lifecycle management"],
         "description": "###  Operation Description \n * Create an issue for the following entities  of intrest, for which an issue is faced by the buyer: \n    +  order\n    +  item\n    +  transaction \n    +  fulfillment or\n    +  payment \n * The issue can be created/raised by any of \n    + the Issueca#/components/schemas/IssueCateogory' himself related to any of he entity mentioned  Or\n    + By any of the Issueca#/components/schemas/IssueCateogory'-app,seller-app, transaction-counter party, or logistics providers NPs to help resolve any issue rasied by the buyer.\n",
         "requestBody": {
           "description": "Buyer searches for Support Contact details",
@@ -356,9 +333,7 @@
     },
     "/issue_status": {
       "post": {
-        "tags": [
-          "Complaint status checks"
-        ],
+        "tags": ["Complaint status checks"],
         "description": "Fetch the status of a complaint",
         "requestBody": {
           "description": "Any of the network participants or the buyer or seller or lsp checks for status of order",
@@ -379,15 +354,10 @@
                         "format": "uuid"
                       }
                     },
-                    "required": [
-                      "id"
-                    ]
+                    "required": ["id"]
                   }
                 },
-                "required": [
-                  "context",
-                  "message"
-                ]
+                "required": ["context", "message"]
               }
             }
           }
@@ -407,17 +377,13 @@
                           "$ref": "#/components/schemas/Ack"
                         }
                       },
-                      "required": [
-                        "ack"
-                      ]
+                      "required": ["ack"]
                     },
                     "error": {
                       "$ref": "#/components/schemas/Error"
                     }
                   },
-                  "required": [
-                    "message"
-                  ]
+                  "required": ["message"]
                 }
               }
             }
@@ -427,10 +393,7 @@
     },
     "/on_search": {
       "post": {
-        "tags": [
-          "ONDC Buyer App",
-          "ONDC Gateway"
-        ],
+        "tags": ["ONDC Buyer App", "ONDC Gateway"],
         "description": "Send catalog",
         "requestBody": {
           "description": "Sellers provide their catalog in response to buyer search",
@@ -458,9 +421,7 @@
     },
     "/on_select": {
       "post": {
-        "tags": [
-          "ONDC Buyer App"
-        ],
+        "tags": ["ONDC Buyer App"],
         "description": "Send draft order object with quoted price for selected items",
         "requestBody": {
           "description": "Seller provides quote for selected items",
@@ -488,9 +449,7 @@
     },
     "/on_init": {
       "post": {
-        "tags": [
-          "ONDC Buyer App"
-        ],
+        "tags": ["ONDC Buyer App"],
         "description": "Send order object with payment details updated",
         "requestBody": {
           "description": "Seller provides terms and conditions for an order",
@@ -518,9 +477,7 @@
     },
     "/on_confirm": {
       "post": {
-        "tags": [
-          "ONDC Buyer App"
-        ],
+        "tags": ["ONDC Buyer App"],
         "description": "Send active order object",
         "requestBody": {
           "description": "Seller confirms order",
@@ -548,9 +505,7 @@
     },
     "/on_track": {
       "post": {
-        "tags": [
-          "ONDC Buyer App"
-        ],
+        "tags": ["ONDC Buyer App"],
         "description": "Send tracking details of an active order",
         "requestBody": {
           "description": "Seller provides tracking details for an order",
@@ -578,9 +533,7 @@
     },
     "/on_cancel": {
       "post": {
-        "tags": [
-          "ONDC Buyer App"
-        ],
+        "tags": ["ONDC Buyer App"],
         "description": "Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object",
         "requestBody": {
           "description": "Seller provides response to cancellation request",
@@ -608,9 +561,7 @@
     },
     "/on_update": {
       "post": {
-        "tags": [
-          "ONDC Buyer App"
-        ],
+        "tags": ["ONDC Buyer App"],
         "description": "Returns updated service with updated runtime object",
         "requestBody": {
           "description": "Seller provides response to order update",
@@ -638,9 +589,7 @@
     },
     "/on_status": {
       "post": {
-        "tags": [
-          "ONDC Buyer App"
-        ],
+        "tags": ["ONDC Buyer App"],
         "description": "Fetch the status of a Service",
         "requestBody": {
           "description": "Seller provides status information for order",
@@ -668,9 +617,7 @@
     },
     "/on_rating": {
       "post": {
-        "tags": [
-          "ONDC Buyer App"
-        ],
+        "tags": ["ONDC Buyer App"],
         "description": "Provide feedback on a service",
         "requestBody": {
           "description": "Seller provides response to rating provided by buyer",
@@ -698,9 +645,7 @@
     },
     "/on_support": {
       "post": {
-        "tags": [
-          "ONDC Buyer App"
-        ],
+        "tags": ["ONDC Buyer App"],
         "description": "Contact Support",
         "requestBody": {
           "description": "Seller provides Contact Support details",
@@ -728,9 +673,7 @@
     },
     "/get_cancellation_reasons": {
       "post": {
-        "tags": [
-          "Seller App Meta APIs"
-        ],
+        "tags": ["Seller App Meta APIs"],
         "description": "Get cancellation reasons from the Seller App",
         "requestBody": {
           "description": "Context header is sent as the request",
@@ -758,9 +701,7 @@
     },
     "/cancellation_reasons": {
       "post": {
-        "tags": [
-          "Buyer App Meta APIs"
-        ],
+        "tags": ["Buyer App Meta APIs"],
         "description": "Get cancellation reasons from the Seller App",
         "requestBody": {
           "description": "List of cancellation reasons.",
@@ -788,9 +729,7 @@
     },
     "/get_return_reasons": {
       "post": {
-        "tags": [
-          "Seller App Meta APIs"
-        ],
+        "tags": ["Seller App Meta APIs"],
         "description": "Get return reasons from the Seller App",
         "requestBody": {
           "description": "Context header is sent as the request",
@@ -818,9 +757,7 @@
     },
     "/return_reasons": {
       "post": {
-        "tags": [
-          "Buyer App Meta APIs"
-        ],
+        "tags": ["Buyer App Meta APIs"],
         "description": "Get return reasons from the Seller App",
         "requestBody": {
           "description": "List of return reasons",
@@ -848,9 +785,7 @@
     },
     "/get_rating_categories": {
       "post": {
-        "tags": [
-          "Seller App Meta APIs"
-        ],
+        "tags": ["Seller App Meta APIs"],
         "description": "Get a list of categories that can be rated by the Seller App",
         "requestBody": {
           "description": "Context header is sent as the request",
@@ -878,9 +813,7 @@
     },
     "/rating_categories": {
       "post": {
-        "tags": [
-          "Buyer App Meta APIs"
-        ],
+        "tags": ["Buyer App Meta APIs"],
         "description": "Get a list of categories that can be rated by the Buyer App",
         "requestBody": {
           "description": "Array of categories which can be rated",
@@ -908,9 +841,7 @@
     },
     "/get_feedback_categories": {
       "post": {
-        "tags": [
-          "Seller Meta APIs"
-        ],
+        "tags": ["Seller Meta APIs"],
         "description": "Get a list of categories for which feedback can be given by the Buyer App",
         "requestBody": {
           "description": "Context header is sent as the request",
@@ -938,9 +869,7 @@
     },
     "/feedback_categories": {
       "post": {
-        "tags": [
-          "Buyer App Meta APIs"
-        ],
+        "tags": ["Buyer App Meta APIs"],
         "description": "Get a list of categories for which feedback can be given by the Buyer App",
         "requestBody": {
           "description": "Array of categories for which feedback can be given by the Buyer App",
@@ -968,9 +897,7 @@
     },
     "/get_feedback_form": {
       "post": {
-        "tags": [
-          "Seller App Meta APIs"
-        ],
+        "tags": ["Seller App Meta APIs"],
         "description": "Request a feedback form from the Seller App",
         "requestBody": {
           "description": "The rating value and category is sent by the Buyer App",
@@ -998,9 +925,7 @@
     },
     "/feedback_form": {
       "post": {
-        "tags": [
-          "Buyer App Meta APIs"
-        ],
+        "tags": ["Buyer App Meta APIs"],
         "description": "Get a feedback form from the Seller App",
         "requestBody": {
           "description": "Feedback form sent by the Buyer App",
@@ -1030,18 +955,13 @@
   "components": {
     "schemas": {
       "Ack": {
-        "required": [
-          "status"
-        ],
+        "required": ["status"],
         "type": "object",
         "properties": {
           "status": {
             "type": "string",
             "description": "Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK",
-            "enum": [
-              "ACK",
-              "NACK"
-            ]
+            "enum": ["ACK", "NACK"]
           }
         },
         "description": "Describes the ACK response"
@@ -1198,10 +1118,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": [
-              "full",
-              "partial"
-            ]
+            "enum": ["full", "partial"]
           },
           "ref_id": {
             "type": "string"
@@ -1358,10 +1275,7 @@
         "description": "Describes a category."
       },
       "Circle": {
-        "required": [
-          "gps",
-          "radius"
-        ],
+        "required": ["gps", "radius"],
         "type": "object",
         "properties": {
           "gps": {
@@ -1585,19 +1499,14 @@
       "Domain": {
         "type": "string",
         "description": "Codification of domain for ONDC",
-        "enum": [
-          "nic2004:60232"
-        ]
+        "enum": ["nic2004:60232"]
       },
       "Duration": {
         "type": "string",
         "description": "Describes duration as per ISO8601 format"
       },
       "Error": {
-        "required": [
-          "code",
-          "type"
-        ],
+        "required": ["code", "type"],
         "type": "object",
         "properties": {
           "type": {
@@ -1664,11 +1573,7 @@
           "answer_type": {
             "type": "string",
             "description": "Specifies how the answer option should be rendered.",
-            "enum": [
-              "radio",
-              "checkbox",
-              "text"
-            ]
+            "enum": ["radio", "checkbox", "text"]
           }
         },
         "description": "An element in the feedback form. It can be question or an answer to the question."
@@ -1683,10 +1588,7 @@
           },
           "tl_method": {
             "type": "string",
-            "enum": [
-              "http/get",
-              "http/post"
-            ]
+            "enum": ["http/get", "http/post"]
           },
           "params": {
             "$ref": "#/components/schemas/FeedbackUrl_params"
@@ -2118,10 +2020,7 @@
           "@ondc/org/created_by": {
             "type": "string",
             "description": "order created by",
-            "enum": [
-              "buyer-app",
-              "seller-app"
-            ]
+            "enum": ["buyer-app", "seller-app"]
           },
           "@ondc/org/cancellation": {
             "$ref": "#/components/schemas/Cancellation"
@@ -2166,12 +2065,7 @@
           },
           "tl_method": {
             "type": "string",
-            "enum": [
-              "http/get",
-              "http/post",
-              "payto",
-              "upi"
-            ]
+            "enum": ["http/get", "http/post", "payto", "upi"]
           },
           "params": {
             "$ref": "#/components/schemas/Payment_params"
@@ -2187,21 +2081,14 @@
           },
           "status": {
             "type": "string",
-            "enum": [
-              "PAID",
-              "NOT-PAID",
-              "PENDING"
-            ]
+            "enum": ["PAID", "NOT-PAID", "PENDING"]
           },
           "time": {
             "$ref": "#/components/schemas/Time"
           },
           "collected_by": {
             "type": "string",
-            "enum": [
-              "BAP",
-              "BPP"
-            ]
+            "enum": ["BAP", "BPP"]
           },
           "@ondc/org/collection_amount": {
             "type": "string",
@@ -2213,12 +2100,7 @@
           },
           "@ondc/org/settlement_window_status": {
             "type": "string",
-            "enum": [
-              "Assert",
-              "Agree",
-              "Disagree",
-              "Terminate"
-            ]
+            "enum": ["Assert", "Agree", "Disagree", "Terminate"]
           },
           "@ondc/org/settlement_details": {
             "type": "array",
@@ -2227,6 +2109,7 @@
             }
           }
         },
+        "required": ["type"],
         "description": "Describes a payment"
       },
       "Person": {
@@ -2274,10 +2157,7 @@
         "description": "Describes a policy. Allows for domain extension."
       },
       "Price": {
-        "required": [
-          "currency",
-          "value"
-        ],
+        "required": ["currency", "value"],
         "type": "object",
         "properties": {
           "currency": {
@@ -2452,18 +2332,12 @@
         }
       },
       "Scalar": {
-        "required": [
-          "unit",
-          "value"
-        ],
+        "required": ["unit", "value"],
         "type": "object",
         "properties": {
           "type": {
             "type": "string",
-            "enum": [
-              "CONSTANT",
-              "VARIABLE"
-            ]
+            "enum": ["CONSTANT", "VARIABLE"]
           },
           "value": {
             "type": "number"
@@ -2532,11 +2406,7 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "bap",
-              "bpp",
-              "bg"
-            ]
+            "enum": ["bap", "bpp", "bg"]
           },
           "cb_url": {
             "type": "string",
@@ -2591,11 +2461,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": [
-              "order",
-              "billing",
-              "fulfillment"
-            ]
+            "enum": ["order", "billing", "fulfillment"]
           },
           "ref_id": {
             "type": "string"
@@ -2706,10 +2572,7 @@
           "status": {
             "type": "string",
             "description": "This value indicates if the tracking is currently active or not. If this value is `active`, then the BAP can begin tracking the order. If this value is `inactive`, the tracking URL is considered to be expired and the BAP should stop tracking the order.",
-            "enum": [
-              "active",
-              "inactive"
-            ]
+            "enum": ["active", "inactive"]
           }
         },
         "description": "Contains tracking information that can be used by the BAP to track the fulfillment of an order in real-time. which is useful for knowing the location of time sensitive deliveries."
@@ -2771,10 +2634,7 @@
         }
       },
       "search_body": {
-        "required": [
-          "context",
-          "message"
-        ],
+        "required": ["context", "message"],
         "type": "object",
         "properties": {
           "context": {
@@ -2786,9 +2646,7 @@
         }
       },
       "inline_response_200": {
-        "required": [
-          "message"
-        ],
+        "required": ["message"],
         "type": "object",
         "properties": {
           "message": {
@@ -2800,9 +2658,7 @@
         }
       },
       "select_message": {
-        "required": [
-          "order"
-        ],
+        "required": ["order"],
         "type": "object",
         "properties": {
           "order": {
@@ -2811,10 +2667,7 @@
         }
       },
       "select_body": {
-        "required": [
-          "context",
-          "message"
-        ],
+        "required": ["context", "message"],
         "type": "object",
         "properties": {
           "context": {
@@ -2826,10 +2679,7 @@
         }
       },
       "init_body": {
-        "required": [
-          "context",
-          "message"
-        ],
+        "required": ["context", "message"],
         "type": "object",
         "properties": {
           "context": {
@@ -2841,10 +2691,7 @@
         }
       },
       "confirm_body": {
-        "required": [
-          "context",
-          "message"
-        ],
+        "required": ["context", "message"],
         "type": "object",
         "properties": {
           "context": {
@@ -2856,9 +2703,7 @@
         }
       },
       "status_message": {
-        "required": [
-          "order_id"
-        ],
+        "required": ["order_id"],
         "type": "object",
         "properties": {
           "order_id": {
@@ -2867,10 +2712,7 @@
         }
       },
       "status_body": {
-        "required": [
-          "context",
-          "message"
-        ],
+        "required": ["context", "message"],
         "type": "object",
         "properties": {
           "context": {
@@ -2882,9 +2724,7 @@
         }
       },
       "track_message": {
-        "required": [
-          "order_id"
-        ],
+        "required": ["order_id"],
         "type": "object",
         "properties": {
           "order_id": {
@@ -2897,10 +2737,7 @@
         }
       },
       "track_body": {
-        "required": [
-          "context",
-          "message"
-        ],
+        "required": ["context", "message"],
         "type": "object",
         "properties": {
           "context": {
@@ -2912,9 +2749,7 @@
         }
       },
       "cancel_message": {
-        "required": [
-          "order_id"
-        ],
+        "required": ["order_id"],
         "type": "object",
         "properties": {
           "order_id": {
@@ -2929,10 +2764,7 @@
         }
       },
       "cancel_body": {
-        "required": [
-          "context",
-          "message"
-        ],
+        "required": ["context", "message"],
         "type": "object",
         "properties": {
           "context": {
@@ -2944,10 +2776,7 @@
         }
       },
       "update_message": {
-        "required": [
-          "order",
-          "update_target"
-        ],
+        "required": ["order", "update_target"],
         "type": "object",
         "properties": {
           "update_target": {
@@ -2960,10 +2789,7 @@
         }
       },
       "update_body": {
-        "required": [
-          "context",
-          "message"
-        ],
+        "required": ["context", "message"],
         "type": "object",
         "properties": {
           "context": {
@@ -2975,10 +2801,7 @@
         }
       },
       "rating_body": {
-        "required": [
-          "context",
-          "message"
-        ],
+        "required": ["context", "message"],
         "type": "object",
         "properties": {
           "context": {
@@ -2999,10 +2822,7 @@
         }
       },
       "support_body": {
-        "required": [
-          "context",
-          "message"
-        ],
+        "required": ["context", "message"],
         "type": "object",
         "properties": {
           "context": {
@@ -3014,9 +2834,7 @@
         }
       },
       "on_search_message": {
-        "required": [
-          "catalog"
-        ],
+        "required": ["catalog"],
         "type": "object",
         "properties": {
           "catalog": {
@@ -3025,9 +2843,7 @@
         }
       },
       "on_search_body": {
-        "required": [
-          "context"
-        ],
+        "required": ["context"],
         "type": "object",
         "properties": {
           "context": {
@@ -3042,9 +2858,7 @@
         }
       },
       "inline_response_200_1": {
-        "required": [
-          "context"
-        ],
+        "required": ["context"],
         "type": "object",
         "properties": {
           "message": {
@@ -3099,9 +2913,7 @@
         }
       },
       "on_select_message": {
-        "required": [
-          "order"
-        ],
+        "required": ["order"],
         "type": "object",
         "properties": {
           "order": {
@@ -3110,9 +2922,7 @@
         }
       },
       "on_select_body": {
-        "required": [
-          "context"
-        ],
+        "required": ["context"],
         "type": "object",
         "properties": {
           "context": {
@@ -3211,9 +3021,7 @@
         }
       },
       "on_init_message": {
-        "required": [
-          "order"
-        ],
+        "required": ["order"],
         "type": "object",
         "properties": {
           "order": {
@@ -3222,9 +3030,7 @@
         }
       },
       "on_init_body": {
-        "required": [
-          "context"
-        ],
+        "required": ["context"],
         "type": "object",
         "properties": {
           "context": {
@@ -3239,9 +3045,7 @@
         }
       },
       "on_confirm_body": {
-        "required": [
-          "context"
-        ],
+        "required": ["context"],
         "type": "object",
         "properties": {
           "context": {
@@ -3256,9 +3060,7 @@
         }
       },
       "on_track_message": {
-        "required": [
-          "tracking"
-        ],
+        "required": ["tracking"],
         "type": "object",
         "properties": {
           "tracking": {
@@ -3267,9 +3069,7 @@
         }
       },
       "on_track_body": {
-        "required": [
-          "context"
-        ],
+        "required": ["context"],
         "type": "object",
         "properties": {
           "context": {
@@ -3284,9 +3084,7 @@
         }
       },
       "on_cancel_body": {
-        "required": [
-          "context"
-        ],
+        "required": ["context"],
         "type": "object",
         "properties": {
           "context": {
@@ -3301,9 +3099,7 @@
         }
       },
       "on_update_body": {
-        "required": [
-          "context"
-        ],
+        "required": ["context"],
         "type": "object",
         "properties": {
           "context": {
@@ -3318,9 +3114,7 @@
         }
       },
       "on_status_body": {
-        "required": [
-          "context"
-        ],
+        "required": ["context"],
         "type": "object",
         "properties": {
           "context": {
@@ -3335,9 +3129,7 @@
         }
       },
       "on_rating_body": {
-        "required": [
-          "context"
-        ],
+        "required": ["context"],
         "type": "object",
         "properties": {
           "context": {
@@ -3369,9 +3161,7 @@
         }
       },
       "on_support_body": {
-        "required": [
-          "context"
-        ],
+        "required": ["context"],
         "type": "object",
         "properties": {
           "context": {
@@ -3542,10 +3332,7 @@
           },
           "fulfillment_managed_by": {
             "type": "string",
-            "enum": [
-              "customer",
-              "provider"
-            ]
+            "enum": ["customer", "provider"]
           }
         },
         "description": "Describes the return policy of an item or an order"
@@ -3578,18 +3365,12 @@
           },
           "content_type": {
             "type": "string",
-            "enum": [
-              "text/plain",
-              "text/html",
-              "application/json"
-            ]
+            "enum": ["text/plain", "text/html", "application/json"]
           }
         }
       },
       "FeedbackUrl_params": {
-        "required": [
-          "feedback_id"
-        ],
+        "required": ["feedback_id"],
         "type": "object",
         "properties": {
           "feedback_id": {
@@ -3720,9 +3501,7 @@
         }
       },
       "Order_provider_locations": {
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "type": "object",
         "properties": {
           "id": {
@@ -3746,9 +3525,7 @@
         }
       },
       "Order_add_ons": {
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "type": "object",
         "properties": {
           "id": {
@@ -3757,9 +3534,7 @@
         }
       },
       "Order_offers": {
-        "required": [
-          "id"
-        ],
+        "required": ["id"],
         "type": "object",
         "properties": {
           "id": {
@@ -3850,9 +3625,7 @@
         "description": "payload for linked order e.g. logistics order that cascaded into this logistics order"
       },
       "Payment_params": {
-        "required": [
-          "currency"
-        ],
+        "required": ["currency"],
         "type": "object",
         "properties": {
           "transaction_id": {
@@ -3878,18 +3651,11 @@
         "properties": {
           "settlement_counterparty": {
             "type": "string",
-            "enum": [
-              "buyer-app",
-              "seller-app"
-            ]
+            "enum": ["buyer-app", "seller-app"]
           },
           "settlement_type": {
             "type": "string",
-            "enum": [
-              "neft",
-              "rtgs",
-              "upi"
-            ]
+            "enum": ["neft", "rtgs", "upi"]
           },
           "settlement_bank_account_no": {
             "type": "string"
@@ -3919,10 +3685,7 @@
           },
           "settlement_status": {
             "type": "string",
-            "enum": [
-              "PAID",
-              "NOT-PAID"
-            ]
+            "enum": ["PAID", "NOT-PAID"]
           },
           "settlement_reference": {
             "type": "string",
@@ -3996,9 +3759,7 @@
         }
       },
       "inline_response_200_message": {
-        "required": [
-          "ack"
-        ],
+        "required": ["ack"],
         "type": "object",
         "properties": {
           "ack": {
@@ -4017,9 +3778,7 @@
             "$ref": "#/components/schemas/Contact"
           }
         },
-        "required": [
-          "contact.phone"
-        ]
+        "required": ["contact.phone"]
       },
       "ResolutionProvider": {
         "description": "Describes the details of the entity that provides the resolution for the issue",
@@ -4050,9 +3809,7 @@
             }
           }
         },
-        "required": [
-          "respondent_info"
-        ]
+        "required": ["respondent_info"]
       },
       "IssueResolution": {
         "description": "Describes the issue resolution for the issue raised by a Complainant",
@@ -4077,20 +3834,11 @@
           "resolution_action": {
             "description": "Indicactes the action taken while addressing the issue.\n ### Actions\n  1. resolve : indicating the issue being resolved. \n  2. reject : indicating that the issue is rejected by the respondant or the resolution provider. \n",
             "type": "string",
-            "enum": [
-              "RESOLVE",
-              "REJECT"
-            ]
+            "enum": ["RESOLVE", "REJECT"]
           },
           "action_triggered": {
             "type": "string",
-            "enum": [
-              "REFUND",
-              "REPLACEMENT",
-              "RETURN",
-              "CANCEL",
-              "NO-ACTION"
-            ]
+            "enum": ["REFUND", "REPLACEMENT", "RETURN", "CANCEL", "NO-ACTION"]
           },
           "refund_amount": {
             "type": "string"
@@ -4185,11 +3933,7 @@
             ]
           }
         },
-        "required": [
-          "contact.phone",
-          "contact.email",
-          "gro_type"
-        ]
+        "required": ["contact.phone", "contact.email", "gro_type"]
       },
       "Faq": {
         "description": "type: object\n",
@@ -4255,9 +3999,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "rating_value"
-        ]
+        "required": ["rating_value"]
       },
       "Issue": {
         "description": "*  Describes the Issue/complaint raised for a particular order, transaction or fulfillment or item for which an issue is faced by the buyer.\n* It also describes the Issue/complaint raised by the network participants to its conuter party or casacaded counterparty apps as and when applicable\n* Describes the issue when it is escalated as a Grievance or a Dispute\n*  supplementary Information  Describes and details evidence of the information about the issue . When the complainant or respondant seeks an issue update the addtional information about the update are populated as part of the supplementary information. \n  the supplementary information section , details information including but not limited to any of the following or more: \n    * comments from the complaintant/ respondant for seeking more information about the issue\n    * comments from the complaintant/ respondant providing the update on the issue with more information on the issue \n    * Picutres providing further information about the issue\n    * documents attachment/links providing further information about the issue etc\n",
@@ -4286,11 +4028,7 @@
           "issue_type": {
             "description": "identifies the type of the issue raised\n* the complainant being raised can be a regular ```Issue```, \n* which then subsequently can be escalated to be a ```Grievance``` \n* which may be further escalated to be a ```Dispute```\n",
             "type": "string",
-            "enum": [
-              "ISSUE",
-              "GRIEVANCE",
-              "DISPUTE"
-            ]
+            "enum": ["ISSUE", "GRIEVANCE", "DISPUTE"]
           },
           "source": {
             "$ref": "#/components/schemas/IssueSource"
@@ -4304,10 +4042,7 @@
           "status": {
             "description": "### Statues\n  1. Open : indicating that the issue is opened and further action is yet to be taken on the issue\n  2. Closed : indicating that the issue is closed and no further action/update/info/resolution action/status change are expected/accepted on this issue. \n",
             "type": "string",
-            "enum": [
-              "OPEN",
-              "CLOSED"
-            ]
+            "enum": ["OPEN", "CLOSED"]
           },
           "issue_actions": {
             "$ref": "#/components/schemas/IssueActions"
@@ -4325,10 +4060,7 @@
           "rating": {
             "description": "rating by the complainant for issue resolution",
             "type": "string",
-            "enum": [
-              "THUMBS-UP",
-              "THUMBS-DOWN"
-            ]
+            "enum": ["THUMBS-UP", "THUMBS-DOWN"]
           },
           "resolution_provider": {
             "$ref": "#/components/schemas/ResolutionProvider"
@@ -4394,11 +4126,7 @@
           "issue_source_type": {
             "description": "Indicates the source from where the issue is raised. \n### TYPES\n    1. Consumer : indicating that the Consumer(Buyer) of a product or a service has raised the issue\n    2. Seller : indicating that the Seller of a product or a service has raised the issue\n    3. Intefacing NP : indicating that the Interfacing NP has identified and raised the issue\n",
             "type": "string",
-            "enum": [
-              "CONSUMER",
-              "SELLER",
-              "INTERFACING-NP"
-            ]
+            "enum": ["CONSUMER", "SELLER", "INTERFACING-NP"]
           }
         }
       },
@@ -4538,11 +4266,7 @@
           "complainant_action": {
             "description": "Describes the action taken by the complainant who has raised the issue. \nthe value should be populated when the complainant has taken any of the below actions to anotate the action taken. the actions can be, \n### Actions\n1. Complainant can ```open``` the issue if he isn't satisfied with the products or services he has purchased or used \n2. Complainant can ```escalate``` the issue if he isn't satisfied with the issue resolution\n3. Complainant can ```close``` the issue if he doesn't expect any more additonal action on the issue and he is satisfied with the resolution/actions taken on the issue till the time of closure of the issue.\n",
             "type": "string",
-            "enum": [
-              "OPEN",
-              "ESCALATE",
-              "CLOSE"
-            ]
+            "enum": ["OPEN", "ESCALATE", "CLOSE"]
           },
           "updated_at": {
             "description": "timestamp for the capturing the time an issue status was last updated",
@@ -4563,12 +4287,7 @@
         "properties": {
           "respondent_action": {
             "type": "string",
-            "enum": [
-              "PROCESSING",
-              "CASCADED",
-              "RESOLVED",
-              "NEED-MORE-INFO"
-            ]
+            "enum": ["PROCESSING", "CASCADED", "RESOLVED", "NEED-MORE-INFO"]
           },
           "updated_at": {
             "description": "timestamp for the capturing the time an issue status was last updated",
