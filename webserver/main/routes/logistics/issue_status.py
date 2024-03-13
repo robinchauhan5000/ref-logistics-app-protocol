@@ -1,3 +1,4 @@
+from main.utils.cryptic_utils import verify_authorisation_header
 from flask import g, request
 from flask_expects_json import expects_json
 from flask_restx import Namespace, Resource
@@ -24,8 +25,16 @@ class issue_statusOrder(Resource):
     # @expects_json(path_schema)
     def post(self):
         response_schema = get_json_schema_for_response('/issue_status')
-        resp = get_ack_response(ack=True)
         payload = request.get_json()
+        auth_header = request.headers.get("Authorization")
+        if auth_header is None:
+            resp = get_ack_response(ack=False)
+        else:
+            bool = verify_authorisation_header(auth_header, payload)
+            if bool:
+                resp = get_ack_response(ack=False)
+            else:
+                resp = get_ack_response(ack=True)
         log(json.dumps({f'{request.method} {request.path} req_body': json.dumps(payload)}))
         dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
         message = {

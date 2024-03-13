@@ -35,7 +35,7 @@ class OndcAction(enum.Enum):
 
 
 class OndcDomain(enum.Enum):
-    RETAIL = "logistics"
+    RETAIL = "retail"
     LOGISTICS = "logistics"
 
 

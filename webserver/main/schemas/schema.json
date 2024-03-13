@@ -2096,6 +2096,9 @@
         "description": "Describes a page in a search result"
       },
       "Payment": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "properties": {
           "uri": {
