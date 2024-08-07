@@ -56,12 +56,25 @@ api = Api(
 # api.render_root()
 
 
+def extract_context_from_payload(request):
+    try:
+        payload = request.get_json()
+        if payload is not None and 'context' in payload:
+            return payload['context']
+        else:
+            log(f"Payload does not contain 'context': {payload}")
+            return None
+    except Exception as e:
+        log(f"Exception occurred while extracting context: {str(e)}")
+        return None
+
 @api.errorhandler(BadRequest)
 def bad_request(error):
+    context = extract_context_from_payload(request)
     if isinstance(error.description, ValidationError):
-        # log(f"data: {request.get_json()} \n error: {error.description}")
+        log(f"data: error: {error.description}")
         error_message = transform_json_schema_error(error.description)
-        return get_ack_response(ack=False,
+        return get_ack_response(ack=False,context=context,
                                 error={"type": BaseError.JSON_SCHEMA_ERROR.value, "message": error_message}), 400
     # handle other "Bad Request"-errors
     return str(error), 500

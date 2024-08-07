@@ -23,7 +23,6 @@ search_namespace = Namespace('search', description='Search Namespace')
 class SearchCatalogues(Resource):
     def post(self):
         payload = request.get_json()
-        print(f'------------------- {payload[constant.CONTEXT]["core_version"]}')
         path_schema = get_json_schema_for_given_path('/search', payload[constant.CONTEXT]["core_version"])
         @expects_json(path_schema)
 
@@ -32,13 +31,13 @@ class SearchCatalogues(Resource):
             if checkstale(domain=OndcDomain.LOGISTICS, action=OndcAction.SEARCH, timestamp=payload[constant.CONTEXT]["timestamp"], message_id=payload[constant.CONTEXT]["message_id"]):
                 auth_header = request.headers.get("Authorization")
                 if auth_header is None:
-                    resp = get_ack_response(ack=False)
+                    resp = get_ack_response(ack=False, error="Authorization header missing", context=payload[constant.CONTEXT])
                 else:
                     bool = verify_authorisation_header(auth_header, payload)
                     if bool:
-                        resp = get_ack_response(ack=False)
+                        resp = get_ack_response(ack=False, error="Authorization failed", context=payload[constant.CONTEXT])
                     else:
-                        resp = get_ack_response(ack=True)
+                        resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
                 log(json.dumps({f'{request.method} {request.path} req_body': json.dumps(payload)}))
                 dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
                 message = {
@@ -63,13 +62,12 @@ class SearchCatalogues(Resource):
 class OnSearch(Resource):
     def post(self):
         payload = request.get_json()
-        print(f'------------------- {payload[constant.CONTEXT]["core_version"]}')
         path_schema = get_json_schema_for_given_path('/on_search', payload[constant.CONTEXT]["core_version"])
 
         @expects_json(path_schema)
         def innerFunction():
             response_schema = get_json_schema_for_response('/on_search', payload[constant.CONTEXT]["core_version"])
-            resp = get_ack_response(ack=True) 
+            resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
             dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
             message = {
                 "request_type": f"{OndcDomain.LOGISTICS.value}_on_search",

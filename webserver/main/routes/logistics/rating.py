@@ -22,7 +22,7 @@ class Rating(Resource):
     @expects_json(path_schema)
     def post(self):
         response_schema = get_json_schema_for_response('/rating')
-        resp = get_ack_response(ack=True)
+        resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
         payload = request.get_json()
         log(json.dumps({f'{request.method} {request.path} req_body': json.dumps(payload)}))
         dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
