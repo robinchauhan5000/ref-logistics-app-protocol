@@ -29,14 +29,18 @@ class StatusOrder(Resource):
             response_schema = get_json_schema_for_response('/status', payload[constant.CONTEXT]["core_version"])
             if checkstale(domain=OndcDomain.LOGISTICS, action=OndcAction.STATUS, timestamp=payload[constant.CONTEXT]["timestamp"], message_id=payload[constant.CONTEXT]["message_id"]):
                 auth_header = request.headers.get("Authorization")
-                if auth_header is None:
-                    resp = get_ack_response(ack=False, error="Authorization header missing", context=payload[constant.CONTEXT])
+                isInternalCall = request.headers.get("internal")
+                if isInternalCall == "true":
+                    resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
                 else:
-                    bool = verify_authorisation_header(auth_header, payload)
-                    if bool:
-                        resp = get_ack_response(ack=False, context=payload[constant.CONTEXT])
+                    if auth_header is None:
+                        resp = get_ack_response(ack=False, context=payload[constant.CONTEXT], error="Authorization header missing",)
                     else:
-                        resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
+                        bool = verify_authorisation_header(auth_header, payload)
+                        if bool:
+                            resp = get_ack_response(ack=False, error="Authorization verification failed", context=payload[constant.CONTEXT])
+                        else:
+                            resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])          
                 log(json.dumps({f'{request.method} {request.path} req_body': json.dumps(payload)}))
                 dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
                 message = {
