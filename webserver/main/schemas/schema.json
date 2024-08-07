@@ -2096,9 +2096,6 @@
         "description": "Describes a page in a search result"
       },
       "Payment": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "properties": {
           "uri": {
@@ -2398,7 +2395,7 @@
               "kilogram",
               "tonne",
               "liter",
-              "milliliter",
+              "millilitre",
               "centimeter",
               "meter"
             ]

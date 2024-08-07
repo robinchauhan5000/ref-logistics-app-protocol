@@ -20,7 +20,6 @@ cancel_namespace = Namespace('cancel', description='Cancel Namespace')
 class CancelOrder(Resource):
     def post(self):
         payload = request.get_json()
-        print(f'------------------- {payload[constant.CONTEXT]["core_version"]}')
         path_schema = get_json_schema_for_given_path('/cancel', payload[constant.CONTEXT]["core_version"])
 
         @expects_json(path_schema)
@@ -28,13 +27,13 @@ class CancelOrder(Resource):
             response_schema = get_json_schema_for_response('/cancel', payload[constant.CONTEXT]["core_version"])
             auth_header = request.headers.get("Authorization")
             if auth_header is None:
-                resp = get_ack_response(ack=False)
+                resp = get_ack_response(ack=False, error="Authorization header missing", context=payload[constant.CONTEXT])
             else:    
                 bool = verify_authorisation_header(auth_header, payload)
                 if bool:
-                    resp = get_ack_response(ack=True)
+                    resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
                 else:
-                    resp = get_ack_response(ack=False)
+                    resp = get_ack_response(ack=False, context=payload[constant.CONTEXT])
             # payload = request.get_json()
             log(json.dumps({f'{request.method} {request.path} req_body': json.dumps(payload)}))
             dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
@@ -55,13 +54,12 @@ class CancelOrder(Resource):
 class OnCancelOrder(Resource):
     def post(self):
         payload = request.get_json()
-        print(f'------------------- {payload[constant.CONTEXT]["core_version"]}')
         path_schema = get_json_schema_for_given_path('/on_cancel', payload[constant.CONTEXT]["core_version"])
 
         @expects_json(path_schema)
         def innerFunction():
             response_schema = get_json_schema_for_response('/on_cancel', payload[constant.CONTEXT]["core_version"])
-            resp = get_ack_response(ack=True)
+            resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
             # payload = request.get_json()
             dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
             message = {
