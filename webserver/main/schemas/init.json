@@ -331,7 +331,7 @@
                 },
                 "type": {
                   "type": "string",
-                  "enum": ["PRE-FULFILLMENT", "ON-FULFILLMENT", "POST-FULFILLMENT"],
+                  "enum": ["ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
 
                   "errorMessage": "should be same as in /search - ${/search/0/message/intent/payment/type}"
                 },
