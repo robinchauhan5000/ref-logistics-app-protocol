@@ -53,8 +53,8 @@ class OnSelectOrder(Resource):
     # @expects_json(path_schema)
     def post(self):
         response_schema = get_json_schema_for_response('/on_track')
-        resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
         payload = request.get_json()
+        resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
         dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
         message = {
             "request_type": f"{OndcDomain.LOGISTICS.value}_on_track",

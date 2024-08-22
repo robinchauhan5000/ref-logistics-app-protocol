@@ -19,7 +19,11 @@ issue_namespace = Namespace('issue', description='Issue Namespace')
 
 @issue_namespace.route("/v1/issue")
 class IssueOrder(Resource):
-    path_schema = get_json_schema_for_given_path('/issue')
+    payload = request.get_json()
+    if payload.message.issue.status == 'CLOSED':
+        path_schema = get_json_schema_for_given_path('/issue_close', '1.0.0')
+    else :
+        path_schema = get_json_schema_for_given_path('/issue', '1.0.0')
 
     # @expects_json(path_schema)
     def post(self):
