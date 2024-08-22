@@ -72,7 +72,6 @@ def extract_context_from_payload(request):
 def bad_request(error):
     context = extract_context_from_payload(request)
     if isinstance(error.description, ValidationError):
-        log(f"data: error: {error.description}")
         error_message = transform_json_schema_error(error.description)
         return get_ack_response(ack=False,context=context,
                                 error={"type": BaseError.JSON_SCHEMA_ERROR.value, "message": error_message}), 400

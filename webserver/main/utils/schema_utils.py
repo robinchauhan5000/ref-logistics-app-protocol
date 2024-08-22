@@ -43,6 +43,8 @@ def get_json_schema_for_given_path(path, core_version='1.2.0', request_type='pos
         return update_and_return_schema(logistics_json_schema_v1)
     elif any(sub_path in path for sub_path in ['/search', '/init', '/confirm', '/status', '/cancel', 'status', '/track', '/update']):
         return get_json_schema(path)
+    elif core_version == '1.0.0' and any(sub_path in path for sub_path in ['/issue', '/issue_status', '/issue_close']):
+        return get_json_schema(path)
     else:
         return update_and_return_schema(logistics_json_schema)
 

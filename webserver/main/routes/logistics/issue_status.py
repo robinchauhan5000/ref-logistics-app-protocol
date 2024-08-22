@@ -20,7 +20,7 @@ issue_status_namespace = Namespace(
 
 @issue_status_namespace.route("/v1/issue_status")
 class issue_statusOrder(Resource):
-    path_schema = get_json_schema_for_given_path('/issue_status')
+    path_schema = get_json_schema_for_given_path('/issue_status', '1.0.0')
 
     # @expects_json(path_schema)
     def post(self):
@@ -55,8 +55,8 @@ class OnSelectOrder(Resource):
     # @expects_json(path_schema)
     def post(self):
         response_schema = get_json_schema_for_response('/on_issue_status')
-        resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
         payload = request.get_json()
+        resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
         dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)
         message = {
             "request_type": f"{OndcDomain.LOGISTICS.value}_on_issue_status",
