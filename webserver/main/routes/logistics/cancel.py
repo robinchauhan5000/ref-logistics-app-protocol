@@ -33,7 +33,7 @@ class CancelOrder(Resource):
                 if bool:
                     resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
                 else:
-                    resp = get_ack_response(ack=False, context=payload[constant.CONTEXT])
+                    resp = get_ack_response(ack=False, error="Authorization failed", context=payload[constant.CONTEXT])
             # payload = request.get_json()
             log(json.dumps({f'{request.method} {request.path} req_body': json.dumps(payload)}))
             dump_request_payload(payload, domain=OndcDomain.LOGISTICS.value)

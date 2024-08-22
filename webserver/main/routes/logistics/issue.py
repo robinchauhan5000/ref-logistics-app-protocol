@@ -53,7 +53,7 @@ class OnSelectOrder(Resource):
         payload = request.get_json()
         auth_header = request.headers.get("Authorization")
         if auth_header is None:
-            resp = get_ack_response(ack=False, error="Authorization header missing", context=payload[constant.CONTEXT])
+            resp = get_ack_response(ack=False, error="Authorization failed", context=payload[constant.CONTEXT])
         else:
             bool = verify_authorisation_header(auth_header, payload)
             if bool:

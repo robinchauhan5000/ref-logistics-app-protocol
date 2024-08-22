@@ -31,7 +31,7 @@ class SelectOrder(Resource):
         else:
             bool = verify_authorisation_header(auth_header, payload)
             if bool:
-                resp = get_ack_response(ack=False)
+                resp = get_ack_response(ack=False, error="Authorization failed", context=payload[constant.CONTEXT])
             else:
                 resp = get_ack_response(ack=True)
         log(json.dumps({f'{request.method} {request.path} req_body': json.dumps(payload)}))

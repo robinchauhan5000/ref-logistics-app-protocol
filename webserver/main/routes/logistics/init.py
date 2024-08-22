@@ -34,7 +34,7 @@ class InitOrder(Resource):
                 else:
                     bool = verify_authorisation_header(auth_header, payload)
                     if bool:
-                        resp = get_ack_response(ack=False, context=payload[constant.CONTEXT])
+                        resp = get_ack_response(ack=False, error="Authorization failed", context=payload[constant.CONTEXT])
                     else:
                         resp = get_ack_response(ack=True, context=payload[constant.CONTEXT])
             # payload = request.get_json()
